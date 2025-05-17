@@ -247,7 +247,9 @@
         }
 
         .slider-nav button {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
             border: none;
             width: 50px;
             height: 50px;
@@ -257,18 +259,19 @@
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            color: #1a1a1a;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             pointer-events: auto;
         }
 
         .slider-nav button:hover {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.4);
             transform: scale(1.1);
         }
 
         .slider-nav button:active {
+            background: rgba(255, 255, 255, 0.5);
             transform: scale(0.95);
         }
 
