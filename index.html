@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Sajad Foroughi - Artist Portfolio | Artworks & Photos</title>
+    <meta name="description" content="Explore the portfolio of Sajad Foroughi, featuring contemporary artworks and photography. View gallery, licensing information, and frequently asked questions.">
+    <meta name="keywords" content="Sajad Foroughi, artist portfolio, contemporary art, photography, artwork gallery, art licensing">
+    <meta name="author" content="Sajad Foroughi">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Sajad Foroughi - Artist Portfolio">
+    <meta property="og:description" content="Explore the portfolio of Sajad Foroughi, featuring contemporary artworks and photography.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sajadforoughi.github.io">
+    <meta property="og:image" content="https://sajadforoughi.github.io/placeholder-image-768x576.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sajad Foroughi - Artist Portfolio">
+    <meta name="twitter:description" content="Explore the portfolio of Sajad Foroughi, featuring contemporary artworks and photography.">
+    <meta name="twitter:image" content="https://sajadforoughi.github.io/placeholder-image-768x576.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://sajadforoughi.github.io">
+    
+    <!-- Structured Data for Artist -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sajad Foroughi",
+        "jobTitle": "Artist",
+        "url": "https://sajadforoughi.github.io",
+        "description": "Contemporary artist and photographer showcasing a portfolio of artworks and photography.",
+        "image": "https://sajadforoughi.github.io/placeholder-image-768x576.png",
+        "sameAs": [
+            "https://instagram.com/your-profile",
+            "https://twitter.com/your-profile",
+            "https://linkedin.com/in/your-profile"
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #ffffff;
+            color: #333333;
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 280px;
+            background: #f5f5f5;
+            padding: 30px;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            border-right: 1px solid #e0e0e0;
+        }
+        .sidebar h2 {
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        .sidebar ul {
+            list-style: none;
+        }
+        .sidebar ul li {
+            margin-bottom: 20px;
+        }
+        .sidebar ul li a {
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .sidebar ul li a:hover {
+            color: #1a1a1a;
+            transform: translateX(5px);
+        }
+        .sidebar ul li a.active {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        .sidebar ul li a.active::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            background: #1a1a1a;
+            border-radius: 2px;
+        }
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px;
+            background: #ffffff;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .entry {
+            margin-bottom: 40px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .entry:hover {
+            transform: translateY(-5px);
+        }
+        .date {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        .location {
+            color: #666666;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+            object-fit: cover;
+        }
+        .image-placeholder:hover {
+            opacity: 0.9;
+        }
+        .description {
+            margin: 15px 0;
+            font-style: italic;
+            color: #666666;
+            line-height: 1.6;
+        }
+        .audio-link {
+            color: #4a4a4a;
+            text-decoration: none;
+            font-style: italic;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .audio-link:hover {
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+            border-bottom: 2px solid #4a4a4a;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+        h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 10px;
+            color: #666666;
+            line-height: 1.6;
+        }
+
+        /* Artwork Slider Styles */
+        .artwork-slider {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .artwork-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .artwork-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .artwork-slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+
+        .slider-nav button {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #1a1a1a;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            pointer-events: auto;
+        }
+
+        .slider-nav button:hover {
+            background: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .slider-nav button:active {
+            transform: scale(0.95);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #ffffff;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Sajad Foroughi</h2>
+        <ul>
+            <li><a href="#artworks" class="active">Artworks</a></li>
+            <li><a href="#photos">Photos</a></li>
+            <li><a href="#qa">FAQ</a></li>
+            <li><a href="#licensing">Licensing</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div id="artworks" class="section">
+                <h1 class="section-title">Artworks</h1>
+                <div class="artwork-slider">
+                    <div class="artwork-container">
+                        <div class="artwork-slide">
+                            <img src="placeholder-image-768x576.png" alt="Artwork 1">
+                        </div>
+                        <div class="artwork-slide">
+                            <img src="placeholder-image-768x576.png" alt="Artwork 2">
+                        </div>
+                        <div class="artwork-slide">
+                            <img src="placeholder-image-768x576.png" alt="Artwork 3">
+                        </div>
+                        <div class="artwork-slide">
+                            <img src="placeholder-image-768x576.png" alt="Artwork 4">
+                        </div>
+                        <div class="artwork-slide">
+                            <img src="placeholder-image-768x576.png" alt="Artwork 5">
+                        </div>
+                    </div>
+                    <div class="slider-nav">
+                        <button class="prev-btn">←</button>
+                        <button class="next-btn">→</button>
+                    </div>
+                    <div class="slider-dots"></div>
+                </div>
+            </div>
+
+            <div id="photos" class="section" style="display: none;">
+                <h1 class="section-title">Photos</h1>
+                <div class="artwork-slider">
+                    <div class="artwork-container">
+                        <div class="artwork-slide">
+                            <img src="placeholder-image-768x576.png" alt="Gallery Photo 1">
+                        </div>
+                        <div class="artwork-slide">
+                            <img src="placeholder-image-768x576.png" alt="Gallery Photo 2">
+                        </div>
+                        <div class="artwork-slide">
+                            <img src="placeholder-image-768x576.png" alt="Gallery Photo 3">
+                        </div>
+                        <div class="artwork-slide">
+                            <img src="placeholder-image-768x576.png" alt="Gallery Photo 4">
+                        </div>
+                        <div class="artwork-slide">
+                            <img src="placeholder-image-768x576.png" alt="Gallery Photo 5">
+                        </div>
+                    </div>
+                    <div class="slider-nav">
+                        <button class="prev-btn">←</button>
+                        <button class="next-btn">→</button>
+                    </div>
+                    <div class="slider-dots"></div>
+                </div>
+            </div>
+
+            <div id="qa" class="section" style="display: none;">
+                <h1 class="section-title">Frequently Asked Questions</h1>
+                <div class="entry">
+                    <div class="description">
+                        <h3>Q: How can I purchase your artwork?</h3>
+                        <p>A: You can contact us through the licensing section to discuss artwork purchases.</p>
+                    </div>
+                    <div class="description">
+                        <h3>Q: Do you accept custom commissions?</h3>
+                        <p>A: Yes, we accept custom commissions. Please contact us through the contact form for more information.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="licensing" class="section" style="display: none;">
+                <h1 class="section-title">Licensing</h1>
+                <div class="entry">
+                    <div class="description">
+                        <h3>Artwork Usage Rights</h3>
+                        <p>Please adhere to the following guidelines when using the artwork:</p>
+                        <ul>
+                            <li>Non-commercial use with attribution</li>
+                            <li>Commercial use requires licensing</li>
+                            <li>No modifications without permission</li>
+                        </ul>
+                    </div>
+                    <div class="description">
+                        <h3>Contact for Licensing</h3>
+                        <p>For licensing inquiries, please contact us at:</p>
+                        <p>example@email.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.sidebar a').forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Show selected section
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).style.display = 'block';
+            });
+        });
+
+        // Initialize sliders for both artwork and gallery sections
+        function initializeSlider(sliderContainer) {
+            const container = sliderContainer.querySelector('.artwork-container');
+            const slides = sliderContainer.querySelectorAll('.artwork-slide');
+            const prevBtn = sliderContainer.querySelector('.prev-btn');
+            const nextBtn = sliderContainer.querySelector('.next-btn');
+            const dotsContainer = sliderContainer.querySelector('.slider-dots');
+            
+            let currentSlide = 0;
+            const slideCount = slides.length;
+
+            // Create dots
+            slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = sliderContainer.querySelectorAll('.dot');
+
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                container.style.transform = `translateX(-${currentSlide * 100}%)`;
+                updateDots();
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                goToSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                goToSlide(currentSlide);
+            }
+
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Auto-advance slides every 5 seconds
+            let slideInterval = setInterval(nextSlide, 5000);
+
+            // Pause auto-advance when hovering over the slider
+            container.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+
+            container.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') prevSlide();
+                if (e.key === 'ArrowRight') nextSlide();
+            });
+        }
+
+        // Initialize both sliders
+        const artworkSlider = document.querySelector('#artworks .artwork-slider');
+        const gallerySlider = document.querySelector('#photos .artwork-slider');
+        
+        if (artworkSlider) initializeSlider(artworkSlider);
+        if (gallerySlider) initializeSlider(gallerySlider);
+    </script>
+</body>
+</html> 
