@@ -215,24 +215,48 @@
             max-width: 800px;
             margin: 0 auto;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .artwork-container {
             display: flex;
             transition: transform 0.5s ease;
             width: 100%;
-        }
-
-        .artwork-slide {
-            min-width: 100%;
             position: relative;
         }
 
+        /* Add clickable areas for navigation */
+        .artwork-container::before,
+        .artwork-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 25%;
+            height: 100%;
+            z-index: 5;
+            cursor: pointer;
+        }
+
+        .artwork-container::before {
+            left: 0;
+        }
+
+        .artwork-container::after {
+            right: 0;
+        }
+
+        /* Ensure the image itself doesn't trigger the click */
         .artwork-slide img {
             width: 100%;
             height: auto;
             border-radius: 12px;
             display: block;
+            pointer-events: none;
+        }
+
+        .artwork-slide {
+            min-width: 100%;
+            position: relative;
         }
 
         .slider-nav {
@@ -527,6 +551,7 @@
             
             let currentSlide = 0;
             const slideCount = slides.length;
+            let isAnimating = false;
 
             // Create dots
             slides.forEach((_, index) => {
@@ -546,24 +571,81 @@
             }
 
             function goToSlide(index) {
+                if (isAnimating) return;
+                isAnimating = true;
                 currentSlide = index;
                 container.style.transform = `translateX(-${currentSlide * 100}%)`;
                 updateDots();
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 500); // Match this with the CSS transition duration
             }
 
             function nextSlide() {
+                if (isAnimating) return;
                 currentSlide = (currentSlide + 1) % slideCount;
                 goToSlide(currentSlide);
             }
 
             function prevSlide() {
+                if (isAnimating) return;
                 currentSlide = (currentSlide - 1 + slideCount) % slideCount;
                 goToSlide(currentSlide);
             }
 
-            // Event listeners
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
+            // Event listeners for buttons
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nextSlide();
+            });
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                prevSlide();
+            });
+
+            // Add click handlers for the sides of the container
+            container.addEventListener('click', (e) => {
+                const rect = container.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const containerWidth = rect.width;
+                
+                // If clicked on the left 25% of the container
+                if (clickX < containerWidth * 0.25) {
+                    prevSlide();
+                }
+                // If clicked on the right 25% of the container
+                else if (clickX > containerWidth * 0.75) {
+                    nextSlide();
+                }
+            });
+
+            // Touch events for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            container.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+            }, { passive: true });
+
+            container.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].clientX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 50; // minimum distance for a swipe
+                const diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swipe left
+                        nextSlide();
+                    } else {
+                        // Swipe right
+                        prevSlide();
+                    }
+                }
+            }
 
             // Auto-advance slides every 5 seconds
             let slideInterval = setInterval(nextSlide, 5000);
